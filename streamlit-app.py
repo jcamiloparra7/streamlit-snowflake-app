@@ -10,6 +10,8 @@ snow_cur.execute("SELECT COLOR_OR_STYLE FROM CATALOG_FOR_WEBSITE")
 catalog_options = snow_cur.fetchall()
 catalog_options = pandas.DataFrame(catalog_options)
 streamlit.write(catalog_options)
+
+streamlit.text(catalog_options.iloc[:,0].values.tolist())
 # streamlit.text(catalog_options)
 
 
