@@ -10,11 +10,9 @@ snow_cur.execute("SELECT COLOR_OR_STYLE FROM CATALOG_FOR_WEBSITE")
 catalog_options = snow_cur.fetchall()
 catalog_options = pandas.DataFrame(catalog_options)
 streamlit.write(catalog_options)
-
-streamlit.text(catalog_options.iloc[:,0].values.tolist())
+catalog_option_list = catalog_options.iloc[:, 0].values.tolist()
+streamlit.selectbox('Pick a sweatsuit color or style:', catalog_option_list)
 # streamlit.text(catalog_options)
-
-
 
 
 snow_cur.execute("SELECT CURRENT_USER(), CURRENT_ACCOUNT(), CURRENT_REGION()")
