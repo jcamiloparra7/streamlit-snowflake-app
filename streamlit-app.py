@@ -13,7 +13,7 @@ streamlit.write(catalog_options)
 catalog_option_list = catalog_options.iloc[:, 0].values.tolist()
 chosen_option = streamlit.selectbox('Pick a sweatsuit color or style:', catalog_option_list)
 # streamlit.text(catalog_options)
-snow_cur.execute(f"SELECT DIRECT_URL, PRICE, SIZE_LIST, UPSELL_PRODUCT_DESC FROM CATALOG_FOR_WEBSITE WHERE COLOR_OR_STYLE = {chosen_option}")
+snow_cur.execute(f"SELECT DIRECT_URL, PRICE, SIZE_LIST, UPSELL_PRODUCT_DESC FROM CATALOG_FOR_WEBSITE WHERE COLOR_OR_STYLE = '{chosen_option}'")
 option_attr = snow_cur.fetchone()
 image_caption = f'Our warm, comfortable, {chosen_option} sweatsuit!'
 streamlit.image(option_attr[0], width=400, caption=image_caption)
